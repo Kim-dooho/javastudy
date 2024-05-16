@@ -54,7 +54,7 @@ public class VariableEx {
     
     //int 형 변수 : 4바이트 크기 (-21억 4천 7백만 ~ 21억 4천 7백만)
     int myAge;
-    myAge = 24;
+    myAge = 100;
     System.out.println(myAge);
     
     // long형 변수 : 8바이트 크기

@@ -1,4 +1,4 @@
-package pkg01_branch;
+package pkg01_if;
 
 public class IfEx {
 

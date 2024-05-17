@@ -206,8 +206,42 @@ public class ArrayEx {
     
   }
   
+  public static void ex3() {
+    
+    // 2차원 배열의 초기화
+    int[][] arr = {
+        {1, 2}  // 1번째 1차원 배열 초기화
+      , {3, 4}  // 2번째 1차원 배열 초기화
+      , {5, 6}  // 3번째 1차원 배열 초기화
+    };
+    
+    // 2차원 배열 순회하기
+    for(int i = 0; i < arr.length; i++) {
+      for(int j = 0; j < arr[i].length; j++) {
+        System.out.print(arr[i][j]);
+      }
+      System.out.println();
+    }
+    
+  }
+  
+  public static void ex4() {
+    
+    // 2차원 배열의 선언과 생성
+    int[][] arr2d = new int[3][2];
+    
+    // advanced for 문을 이용한 2차원 배열의 순회
+    for(int[] arr1d : arr2d) {   // 2차원 배열에서는 1차원 배열을 꺼낸다.
+      for(int number : arr1d) {  // 1차원 배열에서는 각 요소를 꺼낸다.
+        System.out.print(number);
+      }
+      System.out.println();
+    }
+    
+  }
+  
   public static void main(String[] args) {
-    ex2();
+    ex3();
   }
 
 }

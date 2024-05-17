@@ -119,6 +119,6 @@ public class ArrayEx {
   }
   
   public static void main(String[] args) { //jvm은 main만 호출한다.
-    ex4();
+    ex1();
   }
 }

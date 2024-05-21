@@ -48,5 +48,47 @@ public class Book {
     System.out.println("가격 : " + price + "원");
   }
   
+  /*
+   * setter
+   * 1. 필드 값을 저장하기 위한 메소드를 의미한다.
+   * 2. 메소드명은 정해져 있다.
+   *   1) 기본규칙 : set + 필드명
+   *   2) boolean 타입의 필드의 경우 예외가 존재할 수 있다.
+   */
+  public void setTitle(String title) {
+    this.title = title;
+  }
+  public void setWriter(String writer) {
+    this.writer = writer;
+  }
+  public void setPrice(int price) {
+    this.price = price;
+  }
+  
+  
+  /*
+   * getter
+   * 1. 필드 값을 반환하는 메소드이다.
+   * 2. 메소드명은 정해져 있다.
+   *   1) 기본규칙 : get + 필드명
+   *   2) boolean 타입의 필드의 경우 예외가 존재할 수 있다.
+   */
+  public String getTitle() {
+    return title;
+  }
+  public String getWriter() {
+    return writer;
+  }
+  public int getPrice() {
+    return price;
+  }
+  
+  /*
+   * [Source] - [Generate Getters and Setters]
+   * 1. getter 와 setter 는 개발자가 만들지 않는다.
+   * 2. 메뉴를 통하여 자동 완성하거나, Lombok 라이브러리를 통해서 만든다.
+   */
+  
+  
   
 }

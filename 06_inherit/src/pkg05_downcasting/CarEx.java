@@ -15,6 +15,8 @@ public class CarEx {
     // 다운캐스팅(부모타입 Car -> 자식타입 Truck)
     ((Truck)cars[1]).load();
     
+    
+    
     // 잘못된 캐스팅 : ClassCaseException 예외 발생
     
     // 타입을 확인한 뒤에 캐스팅 하는 것이 안전한 방법

@@ -1,7 +1,9 @@
 package ex1;
 
 import java.security.SecureRandom;
+import java.time.LocalDate;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -9,14 +11,18 @@ public class PracticeEx {
   
   public static void ex1() {
     
-    // 시스템에 저장할 파일명 만들기
+    // 파일명 만들기
     // 형식 : 하이픈이 제거된 UUID + 밑줄 + 타임스탬프.확장자
     
     String originalFilename = "apple.jpg";
-    
-    System.out.println(originalFilename.replace(".", "_"));
-    
-    
+    String extName = originalFilename.substring(originalFilename.lastIndexOf("."));
+    StringBuilder builder = new StringBuilder();
+    builder.append(UUID.randomUUID().toString().replace("-", ""));
+    builder.append("_");
+    builder.append(System.currentTimeMillis());
+    builder.append(extName);
+    String filesystemName = builder.toString();
+    System.out.println(filesystemName);
     
   }
   
@@ -29,9 +35,29 @@ public class PracticeEx {
     // 주민번호
     String id = "901010-2******";
     
-    int age = 2024 - 1990;
+    // 현재년도
+    int nowYear = LocalDate.now().getYear();
     
-    Map<Object, Object> info = Map.of("나이", age, "성별", "남성");
+    // 태어난년도
+    int birthYear = 0;
+    
+    // 하이픈 뒤의 숫자
+    int afterHyphen = Integer.parseInt(id.substring(7, 8));
+    
+    switch(afterHyphen) {
+    case 1:
+    case 2:
+      birthYear = 1900 + Integer.parseInt(id.substring(0, 2));
+      break;
+    case 3:
+    case 4:
+      birthYear = 2000 + Integer.parseInt(id.substring(0, 2));
+      break;
+    }
+    
+    String[] genders = {"여자", "남자"};
+    
+    System.out.println(Map.of("age", nowYear - birthYear, "gender", genders[afterHyphen % 2]));
     
   }
 
@@ -56,21 +82,17 @@ public class PracticeEx {
                                    , "이탈리아", "로마"
                                    , "스위스", "베른"
                                    , "영국", "런던");
+     
      Scanner sc = new Scanner(System.in);
-
-     System.out.println("프랑스 수도는? >>>");
-     String name1 = sc.next();
-     System.out.println("스위스 수도는? >>>");
-     String name2 = sc.next();
-     System.out.println("영국 수도는? >>>");
-     String name3 = sc.next();
-     System.out.println("독일 수도는? >>>");
-     String name4 = sc.next();
-     System.out.println("이탈리아 수도는? >>>");
-     String name5 = sc.next();
-     
-     
-     
+     int count = 0;
+     for(Entry<String, String> entry : map.entrySet()) {
+       System.out.println(entry.getKey() + " 수도는? >>>");
+       String capital = sc.next();
+       if(capital.trim().equals(entry.getValue())) {
+         count++;
+       }
+     }
+     System.out.println(count + "개 정답 성공");
      sc.close();
      
   }
@@ -85,22 +107,16 @@ public class PracticeEx {
     // 출금 전 20원, 4회 출금액 2원, 출금 후 18원
     // 출금 전 18원, 5회 출금액 17원, 출금 후 1원
     // 출금 전 1원, 6회 출금액 1원, 출금 후 0원
-    
-    
-    SecureRandom secureRandom = new SecureRandom();
   
     int balance = 5000;
-    int count = 1;
-    int coin = 0;
-    
-    for(count = 1; balance > 0; count++) {
-    coin = secureRandom.nextInt(balance) + 1;
-    System.out.print("출금 전 " + balance + "원, ");
-    balance -= coin;
-    System.out.print(count + "회 출금액 " + coin + "원, ");
-    System.out.println("출금 후 "  + balance + "원");
+    int count = 0;
+    while(balance > 0) {
+      // 출금액 : 1 <= 난수 <= balance
+      int money = (int)(Math.random() * balance + 1);
+      count++;
+      System.out.println("출금 전 " + balance + "원, " + count + "회 출금액 " + money + "원, 출금 후 " + (balance -= money) + "원");
     }
-
+    
   }
   
   public static void ex5() {
@@ -114,6 +130,19 @@ public class PracticeEx {
     
     String[] yuts = {"", "도", "개", "걸", "윷", "모"};
     
+    StringBuilder builder = new StringBuilder();
+    int move = 0;
+    int totalMove = 0;
+    do {
+      move = (int)(Math.random() * 5 + 1);  // 윷 던지는 코드
+      totalMove += move;
+      builder.append(yuts[move]);
+      builder.append(", ");
+    } while(move >= 4);
+    builder.append(totalMove).append("칸 이동한다.");
+    
+    System.out.println(builder.toString());
+    
   }
 
   public static void ex6() {
@@ -126,17 +155,25 @@ public class PracticeEx {
     //   몇 자리의 인증번호를 생성할까요? >>> 6
     //   생성된 6자리 인증번호는 Fa013b입니다.
     
-    SecureRandom secureRandom = new SecureRandom();
     Scanner sc = new Scanner(System.in);
-    
-
-    System.out.println("몇 자리의 인증번호를 생성할까요? >>>");
-    int number = sc.nextInt();
-    
-    
-    int code = secureRandom.nextInt(16);
-    
-    System.out.println("생성된 " + number + "자리 인증번호는 " + code + "입니다.");
+    System.out.println("몇 자리의 인증번호를 생성할까요? >>> ");
+    int count = sc.nextInt();
+    SecureRandom secureRandom = new SecureRandom();
+    StringBuilder builder = new StringBuilder();
+    for(int n = 0; n < count; n++) {
+      double randomNumber = secureRandom.nextDouble();  // 0.0 <= randomNumber < 1.0
+      // 정수 대문자 소문자 발생 확률 : 1/3 확률로 처리
+      if(randomNumber < 0.33) {
+        builder.append(secureRandom.nextInt(10));
+      } else if(randomNumber < 0.66) {
+        builder.append((char)(secureRandom.nextInt(26) + 'A'));
+      } else {
+        builder.append((char)(secureRandom.nextInt(26) + 'a'));
+      }
+    }
+    String code = builder.toString();
+    System.out.println("생성된 " + count + "자리 인증번호는 " + code + "입니다.");
+    sc.close();
     
   }
 
@@ -154,12 +191,23 @@ public class PracticeEx {
     // 입력 >>> 4500
     // 정답입니다. 총 5번만에 성공했습니다.
     
-    SecureRandom secureRandom = new SecureRandom();
-
-    int number = secureRandom.nextInt(10000);
-    System.out.println(number);
-    
-    
+    Scanner sc = new Scanner(System.in);
+    int goal = (int)(Math.random() * 10000) + 1;
+    int input = 0;
+    int nth = 0;
+    do {
+      System.out.println("입력 >>> ");
+      input = sc.nextInt();
+      nth++;
+      if(goal == input) {
+        System.out.println("정답은 " + goal + "이었습니다. " + nth + "번만에 성공했습니다.");
+      } else if(goal > input) {
+        System.out.println("Up!");
+      } else {
+        System.out.println("Down!");
+      }
+    } while(goal != input);
+    sc.close();
     
   }
 
@@ -177,21 +225,22 @@ public class PracticeEx {
     // 7 : ################## 18
     // 8 : ####### 7
     // 9 : ########### 11
-    
-    
-    int count = 10;
-    int[] numbers = new int[100];    // 100개 난수
-    int[] frequencies = new int[count]; // 각 숫자의 빈도수
-    
 
-    for(int i = 0; i <= 100; i++) {
-      SecureRandom secureRandom = new SecureRandom();
-      int randomNumber = secureRandom.nextInt(count);
-      System.out.println(randomNumber);
-      
+    int[] numbers = new int[100];    // 100개 난수
+    int[] frequencies = new int[10]; // 각 숫자의 빈도수
+    
+    for(int i = 0; i < numbers.length; i++) {
+      numbers[i] = (int)(Math.random() * 10);
+      frequencies[numbers[i]]++;
     }
-    
-    
+    for(int i = 0; i < frequencies.length; i++) {
+      StringBuilder builder = new StringBuilder();
+      for(int n = 0; n < frequencies[i]; n++) {
+        builder.append("#");
+      }
+      String graph = builder.toString();
+      System.out.println(i + " : " + graph + " " + frequencies[i]);
+    }
     
   }
   
@@ -225,11 +274,38 @@ public class PracticeEx {
 
     // 빙고 크기
     final int SIZE = 5;
+    // 빙고판 생성
+    int[][] bingo = new int[SIZE][SIZE];
+    // 순서대로 초기화
+    for(int i = 0; i < SIZE; i++) {
+      for(int j = 0; j < SIZE; j++) {
+        bingo[i][j] = (i * SIZE) + (j + 1);
+      }
+    }
+    // 셔플(섞기)
+    for(int i = 0; i < SIZE; i++) {
+      for(int j = 0; j < SIZE; j++) {
+        // bingo[i][j]와 bingo[x][y]의 교환
+        int x = (int)(Math.random() * SIZE);
+        int y = (int)(Math.random() * SIZE);
+        int temp;
+        temp = bingo[i][j];
+        bingo[i][j] = bingo[x][y];
+        bingo[x][y] = temp;
+      }
+    }
+    // 출력
+    for(int i = 0; i < SIZE; i++) {
+      for(int j = 0; j < SIZE; j++) {
+        System.out.print(String.format("%3d", bingo[i][j]));
+      }
+      System.out.println();
+    }
     
   }
   
   public static void main(String[] args) {
-    ex7();    
+    ex1();    
   }
 
 }

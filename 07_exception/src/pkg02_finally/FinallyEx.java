@@ -8,14 +8,14 @@ public class FinallyEx {
     
     try {
       
-      String name1 = null;
+      String name1 = "alice";
       String name2 = "alice";
       
-      System.out.println(name1.equals(name2) ? "같은 이름" : "다른 이름");  //name2가 null 인 경우는 괜찮음.
+      System.out.println(name1.equals(name2) ? "같은 이름" : "다른 이름");
       
     } catch(NullPointerException e) {
       System.out.println("null 값이 메소드를 호출합니다.");
-    } finally {  //무조건 마지막에 실행
+    } finally {
       System.out.println("종료되었습니다.");
     }
 

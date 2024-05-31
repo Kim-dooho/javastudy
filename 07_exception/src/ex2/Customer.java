@@ -28,7 +28,6 @@ public class Customer {
   }
   
   // method
-
   
   /**
    * 구매 메소드<br>
@@ -40,19 +39,18 @@ public class Customer {
    */
   public void buy(Bakery bakery, int count, int money) throws RuntimeException {
     
-    // 고객이 가진 돈보다 더 많은 돈을 내려고 한다.
+    // 고객이 가진 돈 보다 더 많은 돈을 내려고 한다.
     if(this.money < money) {
-      throw new RuntimeException("고객이 가진 돈보다 더 많은 돈을 내려고 한다.");
+      throw new RuntimeException("고객이 가진 돈 보다 더 많은 돈을 내려고 한다.");
     }
     
     // 구매 처리 (bakery 의 판매 처리)
     BreadChange breadChange = bakery.sell(count, money);
-    if(breadChange != null) {
-    this.money -= money;
-    this.count += breadChange.getBread();
-    this.money += breadChange.getChange();
+    if(breadChange != null) {      
+      this.money -= money;
+      this.count += breadChange.getBread();
+      this.money += breadChange.getChange();
     }
-    
     
   }
   

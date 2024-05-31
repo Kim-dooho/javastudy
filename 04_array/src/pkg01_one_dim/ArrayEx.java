@@ -1,7 +1,7 @@
 package pkg01_one_dim;
 
 public class ArrayEx {
-  
+
   public static void ex1() {
     
     /*
@@ -23,7 +23,7 @@ public class ArrayEx {
      *   2) 배열은 참조 타입의 변수로 생성된다.
      *   3) 형식
      *     (1) 자료형[] 배열이름; (추천)
-     *     (2) 자료형 배열이름[]; //과거 버전과의 호환을 위해 사용(지금 안씀)
+     *     (2) 자료형 배열이름[];
      * 3. 배열의 생성
      *   1) 배열의 길이를 정하고 실제 변수를 만드는 것이다.
      *   2) 배열의 모든 요소는 자동으로 초기화된다. (0, 0.0, false, null)
@@ -37,12 +37,27 @@ public class ArrayEx {
     // 배열의 생성
     arr = new int[3];
     
+    /*
+     *    ┌--------------┐
+     * arr│  0x10000000  │ 참조타입의 배열이름
+     *    │--------------│
+     *    │     ...      │
+     *    │--------------│
+     *    │       0      │ 0x10000000  :  arr[0]
+     *    │--------------│
+     *    │       0      │ 0x10000004  :  arr[1]
+     *    │--------------│
+     *    │       0      │ 0x10000008  :  arr[2]
+     *    └--------------┘
+     */
+    
+    // 배열 요소 확인
     System.out.println(arr[0]);
     System.out.println(arr[1]);
     System.out.println(arr[2]);
     
   }
-
+  
   public static void ex2() {
     
     /*
@@ -60,7 +75,7 @@ public class ArrayEx {
     System.out.println(arr.length);
     
     // 배열의 길이를 활용한 배열 요소의 접근
-    for(int i = 0; i < arr.length; i++) { //중요함 외우셈
+    for(int i = 0; i < arr.length; i++) {
       System.out.println(arr[i]);
     }
     
@@ -74,13 +89,13 @@ public class ArrayEx {
     /*
      * 배열의 초기화
      * 1. 배열을 생성할 때 초기 값을 전달할 수 있다.
-     * .2 중괄호{}를 이용하여 초기 값들을 한번에 전달한다.
+     * 2. 중괄호 {}를 이용해서 초기 값들을 한 번에 전달한다.
      * 3. 형식
-     *   1) 배열의 선언과 반드시 함께 하는 초기화
-     *     자료형[] 배열이름 = {값1, 값2, 값}
+     *   1) 배열의 선언과 반드시 함께 해야하는 초기화
+     *     자료형[] 배열이름 = {값1, 값2, 값3};
      *   2) 배열의 선언과 분리할 수 있는 초기화
      *     자료형[] 배열이름;
-     *     배열이름 = new 자료형[]{값1, 값2, 값};
+     *     배열이름 = new 자료형[]{값1, 값2, 값3};
      */
     
     // 배열의 선언과 반드시 함께 해야하는 초기화
@@ -91,13 +106,13 @@ public class ArrayEx {
     
     // 배열의 선언과 분리할 수 있는 초기화
     String[] hobbies;
-    hobbies = new String[] {"game", "movie", "swim", "read"};
+    hobbies = new String[] {"game", "movie", "swim"};
     for(int i = 0; i < hobbies.length; i++) {
       System.out.println(hobbies[i]);
     }
     
   }
-  
+
   public static void ex4() {
     
     /*
@@ -118,7 +133,8 @@ public class ArrayEx {
     
   }
   
-  public static void main(String[] args) { //jvm은 main만 호출한다.
-    ex1();
+  public static void main(String[] args) {
+    ex4();
   }
+
 }

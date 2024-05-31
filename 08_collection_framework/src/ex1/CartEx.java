@@ -17,7 +17,7 @@ public class CartEx {
       Product product5 = new Product("에이스", 5000);
       
       // 고객 만들기
-      customer = new Customer(15000);
+      customer = new Customer(10000);
       
       // 고객 쇼핑 (카트에 물건 담기 / 물건 빼기)
       customer.addToCart(product1);
@@ -25,8 +25,8 @@ public class CartEx {
       customer.addToCart(product3);
       customer.addToCart(product4);
       customer.addToCart(product5);
-      //customer.removeFromCart(4);
-      //customer.removeFromCart(product4);
+      customer.removeFromCart(4);
+      customer.removeFromCart(product4);
       
       // 구매
       String receipt = customer.buy();

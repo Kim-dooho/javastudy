@@ -9,7 +9,7 @@ public class CarEx {
     Ev ev2 = new Ev("테슬라");
     Ev ev3 = new Ev("아이오닉", "LG");
     
-    //메소드 확인
+    // 메소드 확인
     ev1.printCar();
     ev1.printEv();
     ev2.printCar();

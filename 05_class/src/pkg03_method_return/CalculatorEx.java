@@ -5,7 +5,7 @@ public class CalculatorEx {
   public static void main(String[] args) {
     
     Adder adder = new Adder();
-    int sum = adder.plus(1, 2); // plus 메소드의 호출 결과는 int 타입의 값이다.
+    int sum = adder.plus(1, 2);  // plus 메소드의 호출 결과는 int 타입의 값이다.
     System.out.println(sum);
     
     Subtractor subtractor = new Subtractor();
@@ -20,7 +20,6 @@ public class CalculatorEx {
     } else {
       System.out.println(number2 + " is big.");
     }
-    
     
   }
 

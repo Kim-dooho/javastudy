@@ -7,11 +7,11 @@ package pkg03_override;
  * 3. @Override Annotation 을 추가하면 메소드 구성 요소가 모두 동일한지 문법 체크를 해 준다.
  */
 
-public class Americano extends Espresso{
-  
-  @Override //없어도 가능하지만 항상 추가해 줄 것!
-  public void taste() {
-    System.out.println("덜 쓰다");
-  }
+public class Americano extends Espresso {
 
+  @Override  // 없어도 가능하지만 항상 추가해 줄 것!
+  public void taste() {
+    System.out.println("Americano 맛");
+  }
+  
 }

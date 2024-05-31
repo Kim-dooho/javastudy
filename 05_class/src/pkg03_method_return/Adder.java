@@ -1,7 +1,7 @@
 package pkg03_method_return;
 
 public class Adder {
-  
+
   /*
    * 메소드의 반환타입
    * 1. void   : 메소드의 호출 결과 값은 없다.
@@ -11,7 +11,7 @@ public class Adder {
    */
   
   int plus(int number1, int number2) {
-    return number1 + number2; // return 메소드결과값;
+    return number1 + number2;  // return 메소드결과값;
   }
   
 }

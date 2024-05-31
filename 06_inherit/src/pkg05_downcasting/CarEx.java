@@ -15,26 +15,25 @@ public class CarEx {
     // 다운캐스팅(부모타입 Car -> 자식타입 Truck)
     ((Truck)cars[1]).load();
     
-    
-    
-    // 잘못된 캐스팅 : ClassCaseException 예외 발생
-    
+    // 잘못된캐스팅 : ClassCaseException 예외 발생
+    // ((Truck)cars[0]).load();
+
     // 타입을 확인한 뒤에 캐스팅 하는 것이 안전한 방법
     // 타입 확인 연산자 : instanceof
-    
     for(int i = 0; i < cars.length; i++) {
       
       // Bus 타입이면 bell() 호출
       if(cars[i] instanceof Bus) {
         ((Bus)cars[i]).bell();
       }
+      
       // Truck 타입이면 load() 호출
       if(cars[i] instanceof Truck) {
         ((Truck)cars[i]).load();
       }
       
     }
-
+    
   }
 
 }

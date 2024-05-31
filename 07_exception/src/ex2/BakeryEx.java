@@ -11,13 +11,12 @@ public class BakeryEx {
     Customer customer = new Customer(10000);
     
     // 빵 구매하기 (bakery 에 가서 빵 3개 주세요 하며 5000원을 전달한다.)
-    try {
+    try {      
       customer.buy(bakery, 3, 5000);
     } catch(RuntimeException e) {
-      //System.out.println(e.getMessage());
+      // System.out.println(e.getMessage());
       e.printStackTrace();
     }
-    
     
     // 빵집
     System.out.println("빵집 money : " + bakery.getMoney() + "원");

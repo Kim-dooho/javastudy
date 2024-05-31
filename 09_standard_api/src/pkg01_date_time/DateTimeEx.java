@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
 public class DateTimeEx {
-  
+
   public static void ex1() {
     
     java.util.Date date1 = new java.util.Date();
@@ -28,18 +28,19 @@ public class DateTimeEx {
     System.out.println(date);
     
   }
-
+  
   public static void ex3() {
     
-    Calendar date = Calendar.getInstance(); // 필요한 것만 빼서 쓰는 것이 주 목적
+    Calendar date = Calendar.getInstance();
     System.out.println(date);
     
     int year = date.get(Calendar.YEAR);
-    int month = date.get(Calendar.MONTH);  // 주의 0 ~ 11
+    int month = date.get(Calendar.MONTH);  // 주의) 0 ~ 11
     int day = date.get(Calendar.DAY_OF_MONTH);
+    
     System.out.println(year);
-    System.out.println(month + 1);
-    System.out.println(day);
+    System.out.println(month);
+    System.out.println(day);    
     
   }
   
@@ -85,8 +86,8 @@ public class DateTimeEx {
     
     // 원하는 형식 지정하기
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 E요일 a h시 mm분 ss초");
-    String formatterDate = formatter.format(date);
-    System.out.println(formatterDate);
+    String formattedDate = formatter.format(date);
+    System.out.println(formattedDate);
     
   }
   

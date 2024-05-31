@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class ReaderEx {
-  
+
   /*
    * java.io.Reader
    * 1. 문자 기반의 입력 스트림이다. (한글, 영문 모두 동일하게 처리할 수 있다.)
@@ -18,7 +18,7 @@ public class ReaderEx {
    *   2) char[]
    *   3) String
    */
-
+  
   public static void ex1() {
     
     File dir = new File("/storage");
@@ -28,7 +28,7 @@ public class ReaderEx {
       
       // 읽어 들인 글자를 쌓아 둘 StringBuilder
       StringBuilder builder = new StringBuilder();
-      
+
       // 한 번에 3글자 읽기
       char[] cbuf = new char[3];
       
@@ -43,13 +43,12 @@ public class ReaderEx {
       // String 으로 바꿔서 확인
       System.out.println(builder.toString());
       
-      
     } catch (IOException e) {
       e.printStackTrace();
     }
     
   }
-  
+
   public static void ex2() {
     
     File dir = new File("/storage");
@@ -62,10 +61,10 @@ public class ReaderEx {
       // 2. readLine() 메소드를 이용해 한 줄 단위로 읽을 수 있다.
       
       StringBuilder builder = new StringBuilder();
-      String line = null; // 몇 글자가 한 줄에 들어있는지 상관 없음
+      String line = null;
       
       while((line = in.readLine()) != null) {
-        builder.append(line + "\n");
+        builder.append(line).append("\n");
       }
       
       System.out.println(builder.toString());
@@ -76,7 +75,7 @@ public class ReaderEx {
     
   }
   
-  public static void ex3() { // 네트워크는 바이트만 읽어 들인다.
+  public static void ex3() {
     
     // InputStream → InputStreamReader → Reader 변환하기
     
@@ -87,9 +86,8 @@ public class ReaderEx {
       
       StringBuilder builder = new StringBuilder();
       String line = null;
-      
       while((line = in.readLine()) != null) {
-        builder.append(line + "\n");
+        builder.append(line);
       }
       
       System.out.println(builder.toString());
@@ -97,12 +95,11 @@ public class ReaderEx {
     } catch (IOException e) {
       e.printStackTrace();
     }
-    
+  
   }
   
   public static void main(String[] args) {
     ex3();
-
   }
 
 }

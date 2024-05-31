@@ -1,10 +1,9 @@
 package ex3;
 
 public class Person {
-  
-  // field
+
   private String name;
-  
+
   public Person(String name) {
     super();
     this.name = name;

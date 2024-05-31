@@ -17,23 +17,27 @@ public class WhileEx {
     
     int a = 1;
     while(a < 6) {
-      System.out.println(a);  //이 곳의 a 가 1 ~ 5 값을 가져야 한다.
-      a++;
+      System.out.print(a);  // 이 곳의 a 가 1 ~ 5 값을 가져야 한다.
+      a++;  // ++a;
     }
+    System.out.println();
+    
+    // 1 ~ 5 출력하기
     
     int b = 0;
     while(b < 5) {
       b++;
-      System.out.println(b); // 이 곳의 b 가 1 ~ 5 값을 가져야 한다.
+      System.out.print(b);  // 이 곳의 b 가 1 ~ 5 값을 가져야 한다.
     }
+    System.out.println();
     
-    // 5 ~ 1
+    // 5 ~ 1 출력하기
     
     int c = 5;
     while(c > 0) {
-      System.out.println(c--);
+      System.out.print(c--);
     }
-
+    
   }
 
 }

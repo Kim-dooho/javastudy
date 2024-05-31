@@ -12,8 +12,10 @@ public class ConditionEx {
      * 3. 3개의 항으로 구성되기 때문에 삼항 연산자라고도 한다.
      */
     
-    int hour = 19;
-    String ampm = hour < 12 ? "오전" : "오후"; //중요함 외우셈
+    int hour = 10;
+    
+    String ampm = hour < 12 ? "오전" : "오후";
+    
     System.out.println(ampm);
 
   }

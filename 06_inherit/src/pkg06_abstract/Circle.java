@@ -1,11 +1,9 @@
 package pkg06_abstract;
 
 public class Circle extends Shape {
-  
+
   private double radius;
-  
-  
-  
+
   public Circle() {
     // TODO Auto-generated constructor stub
   }
@@ -13,12 +11,14 @@ public class Circle extends Shape {
     super();
     this.radius = radius;
   }
+  
   public double getRadius() {
     return radius;
   }
   public void setRadius(double radius) {
     this.radius = radius;
   }
+
   @Override
   public double getArea() {
     return Math.PI * Math.pow(radius, 2);
@@ -28,6 +28,4 @@ public class Circle extends Shape {
     return 2 * Math.PI * radius;
   }
   
-  
-
 }

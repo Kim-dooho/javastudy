@@ -10,9 +10,9 @@ public class WriterEx {
 
   /*
    * java.io.Writer
-   * 1. 문자 기반의 입력 스트림이다. (한글, 영문 모두 동일하게 처리할 수 있다.)
-   * 2. 모든 문자 기반 입력 스트림의 슈퍼 클래스이다.
-   * 3. 입력 단위
+   * 1. 문자 기반의 출력 스트림이다. (한글, 영문 모두 동일하게 처리할 수 있다.)
+   * 2. 모든 문자 기반 출력 스트림의 슈퍼 클래스이다.
+   * 3. 출력 단위
    *   1) int
    *   2) char[]
    *   3) String
@@ -49,7 +49,7 @@ public class WriterEx {
       
       // 확인
       System.out.println(file.length() + "바이트 크기");
-      System.out.println(file.getPath()); // 작성된 파일
+      System.out.println(file.getPath());
       
     } catch (IOException e) {
       e.printStackTrace();
@@ -58,6 +58,7 @@ public class WriterEx {
   }
 
   public static void ex2() {
+    
     File dir = new File("/storage");
     if(!dir.exists()) {
       dir.mkdirs();
@@ -67,12 +68,13 @@ public class WriterEx {
     try(BufferedWriter out = new BufferedWriter(new FileWriter(file))) {
       
       out.write("안녕하세요");
-      out.newLine();    // BufferedWriter 클래스에서 지원 // 줄바꿈
+      out.newLine();  // BufferedWriter 클래스에서 지원
       out.write("반갑습니다");
       
     } catch (IOException e) {
       e.printStackTrace();
     }
+    
   }
   
   public static void ex3() {
@@ -85,7 +87,7 @@ public class WriterEx {
     
     try(PrintWriter out = new PrintWriter(file)) {
       
-      // println() : 자동 줄바꿈 처리
+      // println() : 자동 줄 바꿈 처리
       out.println("<script>");
       out.println("alert('안녕하세요\\n반갑습니다')");
       out.println("</script>");
@@ -97,8 +99,7 @@ public class WriterEx {
   }
   
   public static void main(String[] args) {
-    ex1();
-
+    ex3();
   }
 
 }

@@ -1,13 +1,12 @@
 package pkg01_try_catch;
 
-public class TryCatchEx { // throwable <- 문제점을 던져주면 잡는(Catch) 기능
-  
-  public static void ex1() { // static 멤버는 static 멤버만 호출할 수 있다.
-    //예외가 발생하는 상황
+public class TryCatchEx {
+
+  public static void ex1() {
+    // 예외가 발생하는 상황    
     String s = "1.5";
     int iNumber = Integer.parseInt(s);
     System.out.println(iNumber);
-    
   }
 
   public static void ex2() {
@@ -30,29 +29,18 @@ public class TryCatchEx { // throwable <- 문제점을 던져주면 잡는(Catch
      *   }
      */
     
-    try {
-      String s = "2.5";
-      int iNumber = Integer.parseInt(s);
-      System.out.println(iNumber);
-    } catch(NumberFormatException e) { // NumberFormatException 의 부모 Exception 을 일반적으로 대신하여 사용함
-      System.out.println("정수만 변환할 수 있습니다.");
-    }
-    
-    }
-  
-  public static void ex3() {
-    
-    String s = "1.5";
+    String s = "2.5";
     try {
       int iNumber = Integer.parseInt(s);
       System.out.println(iNumber);
-    } catch(Exception e) { // Exception 의 이름은 e 로 하기로 함
+    } catch(NumberFormatException e) {
       System.out.println(s + "는 정수로 변환할 수 없습니다.");
     }
     
-    }
+  }
   
-  public static void ex4() {
+  public static void ex3() {
+    
     try {
       
       String param1 = "5";
@@ -71,24 +59,24 @@ public class TryCatchEx { // throwable <- 문제점을 던져주면 잡는(Catch
     } catch(ArithmeticException e) {
       System.out.println("0으로 나눌 수 없습니다.");
     }
+    
+    /*
+     * 다중 catch 블록을 구성할 때 주의사항
+     * 자식 예외 클래스를 먼저 배치하고, 부모 예외 클래스를 나중에 배치해야 한다.
+     * 
+     * try {
+     * 
+     * } catch(부모타입 e) {
+     * 
+     * } catch(자식타입 e) {
+     * 
+     * }
+     */
+    
   }
   
-  /*
-   * 다중 catch 블록을 구성할 때 주의사항
-   * 자식 예외 클래스를 먼저 배치하고 부모 예외 클래스를 나중에 배치해야 한다.
-   * 
-   * try {
-   * 
-   * } catch(부모타입 e) {
-   * 
-   * } catch(자식타입 e) {
-   * 
-   * }
-   */
-  
   public static void main(String[] args) {
-    ex4();
-    
+    ex3();
   }
 
 }

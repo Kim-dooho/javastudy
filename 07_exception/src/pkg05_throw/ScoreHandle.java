@@ -2,7 +2,7 @@ package pkg05_throw;
 
 public class ScoreHandle {
 
-  public String getPass(int score) { //throws RuntimeException 가 생략되어 있음
+  public String getPass(int score) {
     
     if(score < 0 || score > 100) {
       throw new RuntimeException();  // 직접 만든 예외를 던지기

@@ -13,38 +13,30 @@ public class SwitchEx {
      *   switch(표현식) {
      *   case 값1:
      *     실행문
-     *   case 값:
+     *   case 값2:
      *     실행문
      *   ...
-     *   default: else 의 개념과 동일하다.
+     *   default:  else 의 개념과 동일하다.
      *     실행문
      *   }
      */
+    
+    int request = 1;
+    
+    switch(request) {
+    case 1:
+      System.out.println("1");
+      break;  // switch 문 종료
+    case 2:
+      System.out.println("2");
+      break;
+    case 3:
+      System.out.println("3");
+      break;
+    default:  // request 가 1 / 2 / 3 이 아닌 경우
+      System.out.println("default");
+    }
 
-     int request = 4;
-     
-     switch(request) {
-     case 1:
-       System.out.println("1");
-       break; //switch 문 종료
-     case 2:
-       System.out.println("2");
-       break;
-     case 3:
-       System.out.println("3");
-       break;
-     default: //request 가 1/ 2/ 3 이 아닌 경우
-       System.out.println("default");
-     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
   }
 
 }

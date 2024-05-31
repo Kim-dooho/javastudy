@@ -8,12 +8,10 @@ public class EspressoEx {
     Espresso espresso = new Espresso();
     espresso.taste();
     
-    //Americano 인스턴스 생성
+    // Americano 인스턴스 생성
     Americano americano = new Americano();
     americano.taste();
-    
-    
-    
+
   }
 
 }

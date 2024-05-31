@@ -8,7 +8,8 @@ public class BreakEx {
     
     // 무한 루프 : 끝나지 않는 반복문
     
-    // 1 ~ 5 출력하기(중요! 외우셈)
+    // 1 ~ 5 출력하기
+    
     int a = 1;
     while(true) {
       System.out.println(a);

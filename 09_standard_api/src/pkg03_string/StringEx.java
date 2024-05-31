@@ -113,8 +113,8 @@ public class StringEx {
   
   public static void ex7() {
     
-    // indexOf     : 전달한 문자열이 발견된 첫 번째 인덱스를 반환, 없으면 -1을 반환
-    // lastIndexOf : 전달한 문자열이 발견된 마지막  인덱스를 반환, 없으면 -1을 반환
+    // indexOf     : 전달한 문자열이 발견된 첫번째 인덱스를 반환, 없으면 -1을 반환
+    // lastIndexOf : 전달한 문자열이 발견된 마지막 인덱스를 반환, 없으면 -1을 반환
     
     String str = "hello world apple";
     
@@ -241,7 +241,7 @@ public class StringEx {
   }
   
   public static void main(String[] args) {
-    practice02();
+    ex12();
   }
 
   public static void practice01() {

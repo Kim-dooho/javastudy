@@ -17,11 +17,25 @@ public class CompareEx {
     System.out.println(a == b);
     System.out.println(a != b);
     
-    //주의사항. 문자열은 동등비교(==, !=) 사용을 하지 않는다.(주소값을 비교하기 때문)
+    // 주의사항. 문자열은 동등비교(==, !=) 사용을 하지 않는다.
     String myName = "king";
-    String yourName =  "king";
+    String yourName = new String("king");
     System.out.println(myName == yourName);
-
+    
+    /*
+     * ┌-------------┐
+     * |  0x12345678 | myName
+     * |-------------|
+     * |  0xABCDEF00 | yourName
+     * |-------------|
+     * |             |
+     * |-------------|
+     * |     king    | 0x12345678
+     * |-------------|
+     * |     king    | 0xABCDEF00
+     * └-------------┘
+     */
+    
   }
 
 }

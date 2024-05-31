@@ -10,17 +10,15 @@ import java.net.URLConnection;
 
 public class URLEx {
 
-  public static void main(String[] args) throws MalformedURLException { // 형태가 잘못된 URLException
+  public static void main(String[] args) {
     
     // URL 구성
-    // 프로토콜://호스트:포트번호/서버경로?파라미터=값&파라미터=값#참조위치(html기준으론 id)
-    
-    String spec = "http://example.com:9090/blig/web/list?page=1&sort=DESC#footnote";
+    // 프로토콜://호스트:포트번호/서버경로?파라미터=값&파라미터=값#참조위치
+
+    String spec = "http://example.com:9090/blog/web/list?page=1&sort=DESC#footnote";
     
     URL url = null;
     
-    // url = new URL(spec);
-
     try {
       
       url = URI.create(spec).toURL();
@@ -34,7 +32,15 @@ public class URLEx {
       System.out.println(url.getRef());
       
       URLConnection con = url.openConnection();
-      BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream())); 
+      BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+      
+      StringBuilder sb = new StringBuilder();
+      String line = null;
+      while((line = in.readLine()) != null) {
+        sb.append(line).append("\n");
+      }
+      
+      System.out.println(sb.toString());
       
     } catch (MalformedURLException e) {
       e.printStackTrace();

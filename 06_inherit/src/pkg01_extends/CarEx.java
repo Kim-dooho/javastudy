@@ -13,22 +13,22 @@ public class CarEx {
 
   public static void main(String[] args) {
     
-    // Engine 인스턴스 생성
+    // EngineCar 인스턴스 생성
     EngineCar engineCar = new EngineCar();
-      
-    //EngineCar 메소드 호출
-    engineCar.drive();  
-    engineCar.brake();  
-    engineCar.gas();  
-      
+    
+    // EngineCar 메소드 호출
+    engineCar.drive();
+    engineCar.brake();
+    engineCar.gas();
+    
     // Ev 인스턴스 생성
     Ev ev = new Ev();
     
-    // Ev 메서드 호출
+    // Ev 메소드 호출
     ev.drive();
     ev.brake();
     ev.charge();
-    
+
   }
 
 }

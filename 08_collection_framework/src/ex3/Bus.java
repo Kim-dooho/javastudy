@@ -4,14 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bus {
-  
+
   private List<Seat> seats;
-  public static final int LIMIT = 8;
+  public static final int LIMIT = 25;
   private int numOfPerson;
   
   public Bus() {
-    // 구현
-    seats = new ArrayList<Seat>(); // 좌석 만들기
+    seats = new ArrayList<Seat>();
     for(int i = 0; i < LIMIT; i++) {
       seats.add(new Seat());
     }
@@ -20,14 +19,13 @@ public class Bus {
   
   // 버스 타기 (항상 앞자리부터 채운다.)
   public void on(Person person) throws RuntimeException {
-    // 구현
     if(numOfPerson == LIMIT) {
       throw new RuntimeException("만석입니다.");
     }
     for(int i = 0; i < LIMIT; i++) {
       Seat seat = seats.get(i);
       Person p = seat.getPerson();
-      if(p ==null) {
+      if(p == null) {
         seat.setPerson(person);
         numOfPerson++;
         break;
@@ -37,9 +35,8 @@ public class Bus {
   
   // 버스 내리기 (내리는 사람의 좌석 번호가 전달된다.)
   public void off(int seatNo) throws RuntimeException {
-    // 구현
     if(seatNo <= 0 || seatNo > LIMIT) {
-      throw new RuntimeException("없는 좌석입니다.");
+      throw new RuntimeException("없는좌석입니다.");
     }
     int i = seatNo - 1;
     Seat seat = seats.get(i);

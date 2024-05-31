@@ -10,10 +10,10 @@ public class BoxEx {
     System.out.println(box1.getData());
     
     // 문자열을 저장할 수 있는 box2
-    Box<String> box2 = new Box<>();  // 생성자의 구체화 타입은 생략 가능하다. // new 뒤에 꺾쇠 내용은 생략 가능
-    box2.setData("Hello");
+    Box<String> box2 = new Box<>();  // 생성자의 구체화 타입은 생략 가능하다.
+    box2.setData("hello");
     System.out.println(box2.getData());
-
+    
   }
 
 }

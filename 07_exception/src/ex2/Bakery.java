@@ -33,8 +33,6 @@ public class Bakery {
   
   // method
   
-
-  
   /**
    * 판매 메소드<br>
    * 고객(Customer)으로부터 구매할 빵의 개수와 돈을 전달 받아서 빵을 판매한다.<br>
@@ -46,7 +44,7 @@ public class Bakery {
   public BreadChange sell(int count, int money) throws RuntimeException {
     
     // 빵이 부족하다.
-    if(this.count < count) { //this.count 는 베이커리가 가진 개수, count 고객이 제안한 개수
+    if(this.count < count) {
       throw new RuntimeException("빵이 부족하다.");
     }
     
@@ -73,7 +71,6 @@ public class Bakery {
     
     // 고객에게 돌려 줄 BreadChange 인스턴스
     return new BreadChange(count, change);
-    
     
   }
   

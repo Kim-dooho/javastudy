@@ -1,7 +1,7 @@
 package pkg05_method_overloading;
 
 public class Printer {
-  
+
   /*
    * 메소드 오버로딩
    * 1. 같은 이름의 메소드를 2개 이상 만들 수 있다.
@@ -23,4 +23,5 @@ public class Printer {
     }
     System.out.println(names[names.length - 1]);
   }
+  
 }

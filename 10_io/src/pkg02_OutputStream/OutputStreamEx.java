@@ -7,13 +7,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class OutputStreamEx {
-  
+
   /*
    * java.io.OutputStream
    * 1. 바이트 기반의 출력 스트림이다.
    * 2. 모든 바이트 기반 출력 스트림의 슈퍼 클래스이다.
    * 3. 출력 단위
-   *   1) int 
+   *   1) int
    *   2) byte[]
    */
   
@@ -27,13 +27,13 @@ public class OutputStreamEx {
     
     // File file
     File file = new File(dir, "1.dat");
-    
-    // 바이트 파일(이진 파일)을 만드는 스트림
+        
+    // FileOutputStream : 바이트 파일(이진 파일)을 만드는 스트림
     FileOutputStream out = null;
     
     try {
-      
-      // 출력 스트림 생성 (모드 : 생성 모드 - 항상 파일을 새로 만든다.(이미 파일이 있으면 덮어씌운다.))
+
+      // 출력 스트림 생성 (모드 : 생성 모드 - 항상 파일을 새로 만든다.)
       out = new FileOutputStream(file);
       
       // 출력할 데이터 (파일로 보낼 데이터)
@@ -52,25 +52,22 @@ public class OutputStreamEx {
       System.out.println(file.getPath() + " 파일이 생성되었습니다.");
       System.out.println(file.length() + " 바이트 크기의 파일입니다.");
       
-      
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     } catch (IOException e) {
       e.printStackTrace();
     } finally {
-      
       // 스트림 닫기
       try {
         if(out != null)
-        out.close();
+          out.close();
       } catch (IOException e) {
         e.printStackTrace();
       }
-      
     }
     
   }
-
+  
   public static void ex2() {
     
     File dir = new File("/storage");
@@ -85,7 +82,6 @@ public class OutputStreamEx {
     try {
       
       // 출력 스트림 생성(모드 : 추가 모드 - 기존 파일에 추가하기)
-      
       out = new FileOutputStream(file, true);
       
       out.write('\n');
@@ -118,24 +114,24 @@ public class OutputStreamEx {
       // 출력 스트림 생성 (BufferedOutputStream 은 보조 스트림이라서 단독 사용이 불가능)
       out = new BufferedOutputStream(new FileOutputStream(file));
       
-      String s = "Hello world";
+      String s = "hello world";
       byte[] b = s.getBytes();
       out.write(b, 0, 5);
       
       out.flush();
+      
       out.close();
+      
       System.out.println(file.length() + "바이트 크기의 파일이 생성되었습니다.");
       
     } catch (IOException e) {
-      e.printStackTrace(); // 개발 중에 채워 놓는 코드 꼭 채우셈
+      e.printStackTrace();
     }
     
   }
   
   public static void main(String[] args) {
-    
     ex3();
-
   }
 
 }
